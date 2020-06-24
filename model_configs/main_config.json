@@ -1,0 +1,139 @@
+{
+    "data":{
+        "real":{
+            "n_batch":200,
+            "epochs": 1000,
+            "raw":{
+                "input_dim_x":38400,
+                "input_dim_y":1
+            },
+            "fft":{
+                "input_dim_x":120,
+                "input_dim_y":2048
+            }
+
+        },
+        "dummy":{
+            "n_batch":2,
+            "epochs": 2,
+            "raw":{
+                "input_dim_x":38400,
+                "input_dim_y":1
+            },
+            "fft":{
+                "input_dim_x":120,
+                "input_dim_y":2048
+            }
+        }
+    }, 
+    "model1":{
+        "key":"model1",
+        "data_type":"fft",
+        "resnet":{
+            "num_resnet_blocks":2,
+            "layer_filters":64,
+            "pooling_size":[2,1],
+            "conv_size":[3,1],
+            "stride_size":[2,1],
+            "drop_out_rate":0.3,
+            "l2_rate": 0.000001,
+            "output_dim_x": 512,
+            "standalone": 0
+        },
+        "encoder":{
+            "num_layers":2,
+            "num_heads": 8,
+            "drop_out_rate":0.2,
+            "layer_dnn_dim": 512
+        }    
+    },
+    "model2":{
+        "key":"model2",
+        "data_type":"fft",
+        "resnet":{
+            "num_resnet_blocks":2,
+            "layer_filters":64,
+            "pooling_size":[2,1],
+            "conv_size":[3,1],
+            "stride_size":[2,1],
+            "drop_out_rate":0.3,
+            "l2_rate": 0.000001,
+            "output_dim_x": 512,
+            "standalone": 0
+        },
+        "gru":{
+            "dense_layer_dim":512,
+            "dropout_rate": 0
+        }
+    },
+    "model3":{
+        "key":"model3",
+        "data_type":"fft",
+        "resnet":{
+            "num_resnet_blocks":3,
+            "layer_filters":64,
+            "pooling_size":[2,2],
+            "conv_size":[3,3],
+            "stride_size":[2,2],
+            "drop_out_rate":0.5,
+            "l2_rate": 0.0001,
+            "output_dim_x": 512,
+            "standalone": 1
+        }
+    },
+    "model4":{
+        "key":"model4",
+        "data_type":"raw",
+        "resnet":{
+            "num_resnet_blocks":10,
+            "layer_filters":32,
+            "pooling_size":[1,4],
+            "conv_size":[1,5],
+            "stride_size":[1,4],
+            "drop_out_rate":0.1,
+            "l2_rate": 0.00001,
+            "output_dim_x": 256,
+            "standalone": 0
+        },
+        "encoder":{
+            "num_layers":1,
+            "num_heads": 8,
+            "drop_out_rate":0.2,
+            "layer_dnn_dim": 256
+        } 
+    },
+    "model5":{
+        "key":"model5",
+        "data_type":"raw",
+        "resnet":{
+            "num_resnet_blocks":2,
+            "layer_filters":64,
+            "pooling_size":[1,4],
+            "conv_size":[1,5],
+            "stride_size":[1,4],
+            "drop_out_rate":0.1,
+            "l2_rate": 0.000001,
+            "output_dim_x": 128,
+            "standalone": 0
+        },
+        "gru":{
+            "dense_layer_dim":128,
+            "dropout_rate":0.1
+        }
+    },
+    "model6":{
+        "key":"model6",
+        "data_type":"raw",
+        "resnet":{
+            "num_resnet_blocks":4,
+            "layer_filters":64,
+            "pooling_size":[1,4],
+            "conv_size":[1,5],
+            "stride_size":[1,4],
+            "drop_out_rate":0.1,
+            "l2_rate": 0.000001,
+            "output_dim_x": 128,
+            "standalone": 1
+        }
+    }
+}
